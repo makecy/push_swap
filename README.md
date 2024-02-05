@@ -8,25 +8,18 @@ Master the art of sorting a stack of integers using a minimal set of operations,
 
 Features:
 
-    Efficient sorting algorithm
-    Minimization of operations
-    Implementation in C
-    Developed within specified constraints
-    Integral part of the 42 coding school curriculum
+   Efficient sorting algorithm
+   Minimization of operations
+   Implementation in C
+   Developed within specified constraint
+   Integral part of the 42 coding school curriculum
 
 Usage:
 
-    Clone the repository
-    Compile the program: make
-    Run the program with a list of integers as arguments
-    Follow the output instructions to observe optimal sorting
-
-Example:
-
-shell
-
-$ ./push_swap 3 1 2
-sa
+   Clone the repository
+   Compile the program: make
+   Run the program with a list of integers as arguments
+   Follow the output instructions to observe optimal sorting
 
 Contributing:
 
