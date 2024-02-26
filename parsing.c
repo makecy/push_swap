@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 18:22:11 by mstefano          #+#    #+#             */
-/*   Updated: 2024/02/26 02:37:59 by mstefano         ###   ########.fr       */
+/*   Created: 2024/02/26 01:17:18 by mstefano          #+#    #+#             */
+/*   Updated: 2024/02/26 02:36:03 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	error(void)
 {
-	t_stack_node	*stack_a;
-	t_stack_node	*stack_b;
-
+	write(2, "Error\n", 6);
+	exit (1);
 }
+
+
