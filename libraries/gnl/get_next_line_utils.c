@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 16:36:41 by mstefano          #+#    #+#             */
-/*   Updated: 2024/02/01 16:29:09 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/01/30 17:49:13 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (!s1 && !s2)
 		return (NULL);
 	str = ft_calloc(ft_strlen(s1) + ft_strlen(s2) + 1, sizeof(char));
-	if (!str)
-		return (free (s1), str = NULL);
 	while (s1 && s1[i] != 0)
 	{
 		str[i] = s1[i];

@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 16:37:14 by mstefano          #+#    #+#             */
-/*   Updated: 2024/02/15 20:52:32 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:25:48 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 
 # ifndef BUFFER_SIZE 
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 42
 # endif
 
 char	*ft_strchr(const char *s, int c);
