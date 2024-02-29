@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:22:11 by mstefano          #+#    #+#             */
-/*   Updated: 2024/02/26 02:37:59 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/02/27 02:52:20 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	main(int argc, char **argv)
 {
 	t_stack_node	*stack_a;
-	t_stack_node	*stack_b;
 
+	if (argc < 2)
+		error();
 }

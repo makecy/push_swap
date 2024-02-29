@@ -6,13 +6,16 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:22:14 by mstefano          #+#    #+#             */
-/*   Updated: 2024/02/26 01:14:55 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/02/27 03:04:24 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "libraries/Libft/libft.h"
+# include "libraries/get_next_line/get_next_line.h"
+# include "libraries/ft_printf/ft_printf.h"
 # include <fcntl.h>
 # include <stdarg.h>
 # include <stdio.h>

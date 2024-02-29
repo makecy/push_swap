@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   error_message.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 14:35:57 by mstefano          #+#    #+#             */
-/*   Updated: 2023/10/12 19:23:41 by mstefano         ###   ########.fr       */
+/*   Created: 2024/02/26 01:17:18 by mstefano          #+#    #+#             */
+/*   Updated: 2024/02/29 16:44:54 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_isalnum(int c)
+void	error(void)
 {
-	if ((c >= 48 && c <= 57) || ((c >= 65 && c <= 90) || (c >= 97 && c <= 122)))
-		return (1);
-	else
-		return (0);
+	write(2, "Error\n", 6);
+	exit (1);
 }
