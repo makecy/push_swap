@@ -6,7 +6,7 @@
 #    By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 18:22:16 by mstefano          #+#    #+#              #
-#    Updated: 2024/02/27 03:03:12 by mstefano         ###   ########.fr        #
+#    Updated: 2024/03/01 18:10:54 by mstefano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,17 @@ LIBFTDIR = libraries/Libft
 OBJ_DIR = obj
 BONUS = checker
 SRC_DIR = srcs
-INCLUDES = -L ./libraries/Libft -lft
+INCLUDES = -L ./libraries/Libft/libft.a -lft
+
 
 SRC = 	push_swap.c \
 		operations.c \
-		parse.c \
+		operations1.c \
+		operations2.c \
+		operations3.c \
+		sorting.c \
+		creatingstack.c \
+		error_message.c \
 		libraries/ft_printf/ft_printf.c \
 		libraries/get_next_line/get_next_line.c \
 
