@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 05:21:33 by mstefano          #+#    #+#             */
-/*   Updated: 2024/02/27 03:04:51 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/03/02 15:29:58 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	rra(t_stack_node **stack_a)
 	temp->next = NULL;
 	last->prev = NULL;
 	(*stack_a)->prev = last;
+	ft_printf("rra\n");
 }
 
 void	rrb(t_stack_node **stack_b)
@@ -46,10 +47,12 @@ void	rrb(t_stack_node **stack_b)
 	temp->next = NULL;
 	last->prev = NULL;
 	(*stack_b)->prev = last;
+	ft_printf("rrb\n");
 }
 
 void	rrr(t_stack_node **stack_a, t_stack_node **stack_b)
 {
 	rra(stack_a);
 	rrb(stack_b);
+	ft_printf("rrr\n");
 }

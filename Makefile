@@ -6,60 +6,47 @@
 #    By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 18:22:16 by mstefano          #+#    #+#              #
-#    Updated: 2024/03/01 18:10:54 by mstefano         ###   ########.fr        #
+#    Updated: 2024/03/02 19:18:43 by mstefano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
 RM = rm -f
-FLAGS = -Wall -Wextra -Werror
-LIBFTDIR = libraries/Libft
-OBJ_DIR = obj
-BONUS = checker
-SRC_DIR = srcs
-INCLUDES = -L ./libraries/Libft/libft.a -lft
+CFLAGS = -Wall -Wextra -Werror
+LIBRARIES_PATH = ./libraries
+LIBRARIES = $(LIBRARIES_PATH)/libraries.a
 
 
 SRC = 	push_swap.c \
 		operations.c \
 		operations1.c \
 		operations2.c \
-		operations3.c \
 		sorting.c \
 		creatingstack.c \
 		error_message.c \
-		libraries/ft_printf/ft_printf.c \
-		libraries/get_next_line/get_next_line.c \
-
-BONUS_SRC = checker.c \
 
 OBJ = $(SRC:.c=.o)
 
-BONUS_OBJ = $(BONUS_SRC:.c=.o)
+all: $(NAME)
 
+$(LIBRARIES):
+	make -C $(LIBRARIES_PATH)
 
-all : $(NAME) $(BONUS)
+$(NAME): $(LIBRARIES) $(OBJ)  
+	@cc $(CFLAGS) $(LIBRARIES) -o $(NAME) $(OBJ) 
 
-$(NAME): $(OBJ)
-	make -C $(LIBFTDIR)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(INCLUDES)
-
-$(BONUS): $(BONUS_OBJ) $(OBJ)
-	make -C $(LIBFTDIR)
-	$(CC) $(CFLAGS) $(BONUS_OBJ) $(OBJ) -o $(BONUS) $(INCLUDES)
-
-bonus: $(BONUS)
+%.o : %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 	
 clean :
-	rm -f $(OBJ) $(BONUS_OBJ) $(NAME) $(BONUS)
-	@cd $(LIBFTDIR) && $(MAKE) clean
+	@make -C $(LIBRARIES_PATH) clean
+	@RM -f $(OBJ) 
 	
 fclean : clean
 	rm -f $(NAME)
-	@cd $(LIBFTDIR) && $(MAKE) fclean
+	@make fclean -C $(LIBRARIES_PATH)
 
 re : fclean all
 
 .PHONY: all clean fclean re
-

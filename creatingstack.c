@@ -6,23 +6,35 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:47:45 by mstefano          #+#    #+#             */
-/*   Updated: 2024/02/29 18:09:28 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/03/02 21:04:20 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_stack(char **stack)
+void	free_stack(t_stack_node *stack)
+{
+	t_stack_node	*tmp;
+
+	while (stack)
+	{
+		tmp = stack;
+		stack = stack->next;
+		free(tmp);
+	}
+}
+
+void	free_split(char **split)
 {
 	int	i;
 
 	i = 0;
-	while (stack[i])
+	while (split[i])
 	{
-		free(stack[i]);
+		free(split[i]);
 		i++;
 	}
-	free(stack);
+	free(split);
 }
 
 t_stack_node	*push_stack(t_stack_node *stack, int value)
@@ -46,8 +58,8 @@ t_stack_node	*push_stack(t_stack_node *stack, int value)
 
 t_stack_node	*create_stack(int argc, char **argv, t_stack_node *stack_a)
 {
-	int				i;
-	char			**split;
+	int		i;
+	char	**split;
 
 	i = 0;
 	if (argc < 2)
@@ -57,7 +69,7 @@ t_stack_node	*create_stack(int argc, char **argv, t_stack_node *stack_a)
 		split = ft_split(argv[1], ' ');
 		while (split[i])
 			stack_a = push_stack(stack_a, ft_atoi(split[i++]));
-		free_stack(split);
+		free_split(split);
 	}
 	else
 	{
