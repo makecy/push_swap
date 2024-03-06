@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:22:11 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/02 21:00:00 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/03/06 18:29:20 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 int	main(int argc, char **argv)
 {
 	t_stack_node	*stack_a;
-	t_stack_node	*stack_b;
 
-	stack_b = NULL;
 	stack_a = NULL;
 	stack_a = create_stack(argc, argv, stack_a);
 	if (is_sorted(stack_a))
@@ -25,16 +23,14 @@ int	main(int argc, char **argv)
 		printf("The stack is already Sorted\n");
 		return (0);
 	}
-	else if ((!is_sorted(stack_a)) && (argc == 2))
+	else if ((!is_sorted(stack_a)) && (argc == 3))
 	{
 		sa(&stack_a);
-		printf("sa\n");
 	}
-	else if (argc > 2)
+	else if (argc > 3)
 	{
 		sort3_stack(&stack_a);
 	}
 	free_stack(stack_a);
-	free_stack(stack_b);
 	return (0);
 }

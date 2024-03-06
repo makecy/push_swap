@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:22:14 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/02 18:53:33 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/03/06 18:49:29 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_stack_node
 }	t_stack_node;
 
 int			main(int argc, char **argv);
-void		rra(t_stack_node **stack_a);
+void		rra(t_stack_node **a);
 void		rrb(t_stack_node **stack_b);
 void		rrr(t_stack_node **stack_a, t_stack_node **stack_b);
 void		ra(t_stack_node **stack_a);
