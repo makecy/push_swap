@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 18:42:29 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/06 19:18:38 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/03/09 23:39:20 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,62 +24,46 @@ int	is_sorted(t_stack_node *stack)
 	return (1);
 }
 
-// void	sort3_stack(t_stack_node **stack_a)
-// {
-// 	int	a;
-// 	int	b;
-// 	int	c;
-
-// 	a = (*stack_a)->value;
-// 	b = (*stack_a)->next->value;
-// 	c = (*stack_a)->next->next->value;
-// 	if (a > b && a > c && b < c)
-// 		ra(stack_a);
-// 	else if (a > b && a > c && b > c)
-// 	{
-// 		ra(stack_a);
-// 		sa(stack_a);
-// 	}
-// 	else if (a > b && a < c)
-// 		sa(stack_a);
-// 	else if (a > b && b < c)
-// 		rra(stack_a);
-// 	else if (a < b && a > c)
-// 		rra(stack_a);
-// 	else if (a < b && b > c)
-// 	{
-// 		ft_putstr_fd("ok\n", 1);
-// 		rra(stack_a);
-// 		ft_putstr_fd("ok\n", 1);
-// 		sa(stack_a);
-// 	}
-// }
-
-void	sort3_stack(t_stack_node **stack_a)
+void	sort_three(t_stack_node **stack_a)
 {
 	int	a;
 	int	b;
 	int	c;
+	int	i;
 
+	i = 0;
 	a = (*stack_a)->value;
 	b = (*stack_a)->next->value;
 	c = (*stack_a)->next->next->value;
 	if (a > b && a > c)
-	{
 		ra(stack_a);
-		if ((*stack_a)->value > (*stack_a)->next->value)
-			sa(stack_a);
-	}
-	else if (b > c && b > a)
+	else if (b > a && b > c)
 	{
-		if (a > c)
-			rra(stack_a);
-		else
-		{
-			rra(stack_a);
-			sa(stack_a);
-		}
+		ft_printf("before rra %d\n", stack_size(*stack_a));
+		rra(stack_a);
+		ft_printf("after rra %d\n", stack_size(*stack_a));
 	}
-	else if (a > b)
+	if ((*stack_a)->value > (*stack_a)->next->value)
 		sa(stack_a);
+}
+
+void	sort_five(t_stack_node **stack_a, t_stack_node **stack_b)
+{
+	int	i;
+	int	size;
+
+	i = 0;
+	size = stack_size(*stack_a);
+	while (i < 2)
+	{
+		pb(stack_a, stack_b);
+		i++;
+	}
+	sort_three(stack_a);
+	while (i < size)
+	{
+		pa(stack_a, stack_b);
+		i++;
+	}
+	sort_three(stack_a);
 }
