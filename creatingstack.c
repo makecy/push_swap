@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:47:45 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/08 18:21:02 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/03/10 19:21:45 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,17 +78,4 @@ t_stack_node	*create_stack(int argc, char **argv, t_stack_node *stack_a)
 			stack_a = push_stack(stack_a, ft_atoi(argv[i++]));
 	}
 	return (stack_a);
-}
-
-int	stack_size(t_stack_node *stack)
-{
-	int	size;
-
-	size = 0;
-	while (stack)
-	{
-		size++;
-		stack = stack->next;
-	}
-	return (size);
 }
