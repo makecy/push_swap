@@ -6,35 +6,36 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:47:45 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/10 19:21:45 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/03/11 19:16:15 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_stack(t_stack_node *stack)
-{
-	t_stack_node	*tmp;
-
-	while (stack)
-	{
-		tmp = stack;
-		stack = stack->next;
-		free(tmp);
-	}
-}
-
-void	free_split(char **split)
+int	check_args(int argc, char **argv)
 {
 	int	i;
+	int	j;
+	int	count;
 
-	i = 0;
-	while (split[i])
+	i = 1;
+	count = 0;
+	while (i < argc)
 	{
-		free(split[i]);
+		j = 0;
+		while (argv[i][j])
+		{
+			if ((!ft_isdigit(argv[i][j]) && (argv[i][j] != ' '
+				&& argv[i][j] != '-')))
+				error();
+			if ((ft_isdigit(argv[i][j]) && (argv[i][j + 1] == ' ' || argv[i][j
+				+ 1] == '\0')))
+				count += 1;
+			j++;
+		}
 		i++;
 	}
-	free(split);
+	return (count);
 }
 
 t_stack_node	*push_stack(t_stack_node *stack, int value)
@@ -42,7 +43,7 @@ t_stack_node	*push_stack(t_stack_node *stack, int value)
 	t_stack_node	*new_node;
 	t_stack_node	*temp;
 
-	new_node = (t_stack_node *)malloc(sizeof(t_stack_node));
+	new_node = (t_stack_node *)ft_calloc(sizeof(t_stack_node), 1);
 	if (!new_node)
 		error();
 	new_node->value = value;
@@ -53,6 +54,7 @@ t_stack_node	*push_stack(t_stack_node *stack, int value)
 	while (temp->next)
 		temp = temp->next;
 	temp->next = new_node;
+	new_node->prev = temp;
 	return (stack);
 }
 

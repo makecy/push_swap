@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 05:21:33 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/11 15:30:40 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/03/11 17:01:31 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ void	rra(t_stack_node **stack_a)
 	if (last && last->prev)
 	{
 		temp = last->prev;
-		last->prev->next = NULL;
+		if (last->prev)
+			last->prev->next = NULL;
 		last->next = *stack_a;
-		temp->next = NULL;
+		if (temp)
+			temp->next = NULL;
 		(*stack_a)->prev = last;
 		*stack_a = last;
 	}

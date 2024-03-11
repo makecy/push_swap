@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:22:14 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/10 19:21:52 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/03/11 23:19:24 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,18 @@ void					error(void);
 t_stack_node			*create_stack(int argc, char **argv,
 							t_stack_node *stack_a);
 t_stack_node			*push_stack(t_stack_node *stack, int value);
-void					free_stack(t_stack_node *stack);
+int						check_args(int argc, char **argv);
 
 // sorting
 int						is_sorted(t_stack_node *stack);
 void					sort_three(t_stack_node **stack_a);
-void					sort_five(t_stack_node **stack_a,
-							t_stack_node **stack_b);
 // utils
-void					ft_print_stack(t_stack_node *stack);
+void					print_stack(t_stack_node *stack);
 int						stack_size(t_stack_node *stack);
+void					free_split(char **split);
+void					free_stack(t_stack_node *stack);
 
 #endif // PUSH_SWAP_H
+
+// void					sort_five(t_stack_node **stack_a,
+								// t_stack_node **stack_b);

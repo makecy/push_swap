@@ -6,14 +6,14 @@
 #    By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 18:22:16 by mstefano          #+#    #+#              #
-#    Updated: 2024/03/11 15:28:32 by mstefano         ###   ########.fr        #
+#    Updated: 2024/03/11 16:57:10 by mstefano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc 
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 LIBRARIES_PATH = ./libraries
 LIBRARIES = $(LIBRARIES_PATH)/libraries.a
 
@@ -44,11 +44,12 @@ $(NAME): $(LIBRARIES) $(OBJ)
 	
 clean :
 	@make -C $(LIBRARIES_PATH) clean
-	@RM -f $(OBJ) --silent
+	@RM -f $(OBJ)
 	
 fclean : clean
-	rm -f $(NAME)
-	@make fclean -C $(LIBRARIES_PATH) --silent
+	@rm -f $(NAME)
+	@make fclean -C $(LIBRARIES_PATH)
+	@echo "Cleaned Successfully"
 
 re : fclean all
 

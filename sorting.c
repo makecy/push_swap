@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 18:42:29 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/10 19:20:44 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/03/11 17:19:49 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,40 @@ void	sort_three(t_stack_node **stack_a)
 	if ((*stack_a)->value > (*stack_a)->next->value)
 		sa(stack_a);
 }
+// void	sort_three(t_stack_node **stack_a)
+// {
+// 	int	a;
+// 	int	b;
+// 	int	c;
+
+// 	a = (*stack_a)->value;
+// 	b = (*stack_a)->next->value;
+// 	c = (*stack_a)->next->next->value;
+// 	if (a > b && a > c)
+// 	{
+// 		stack_size(*stack_a);
+// 		print_stack(*stack_a);
+// 		ra(stack_a);
+// 		stack_size(*stack_a);
+// 		print_stack(*stack_a);
+// 	}
+// 	else if (b > a && b > c)
+// 	{
+// 		stack_size(*stack_a);
+// 		print_stack(*stack_a);
+// 		rra(stack_a);
+// 		stack_size(*stack_a);
+// 		print_stack(*stack_a);
+// 	}
+// 	if ((*stack_a)->value > (*stack_a)->next->value)
+// 	{
+// 		stack_size(*stack_a);
+// 		print_stack(*stack_a);
+// 		sa(stack_a);
+// 		stack_size(*stack_a);
+// 		print_stack(*stack_a);
+// 	}
+// }
 
 // void	sort_five(t_stack_node **stack_a, t_stack_node **stack_b)
 // {

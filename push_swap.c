@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:22:11 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/11 15:32:24 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/03/11 23:18:28 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,13 @@ int	main(int argc, char **argv)
 	t_stack_node	*stack_a;
 	t_stack_node	*stack_b;
 
-	stack_b = NULL;
 	stack_a = NULL;
+	stack_b = NULL;
+	if (!check_args(argc, argv))
+		return (0);
 	stack_a = create_stack(argc, argv, stack_a);
+	if ((stack_size(stack_a) == 1))
+		error();
 	if (!stack_a)
 	{
 		ft_printf("Error\n");
@@ -37,4 +41,4 @@ int	main(int argc, char **argv)
 	return (0);
 }
 	// else if (argc == 6)
-	// 	sort_five(&stack_a, &stack_b);
+		// sort_five(&stack_a, &stack_b);
