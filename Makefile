@@ -6,7 +6,7 @@
 #    By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 18:22:16 by mstefano          #+#    #+#              #
-#    Updated: 2024/03/11 16:57:10 by mstefano         ###   ########.fr        #
+#    Updated: 2024/03/12 18:36:10 by mstefano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,9 @@ SRC = 	push_swap.c \
 		creatingstack.c \
 		error_message.c \
 		utils.c \
+		allsorts.c \
+		sorting_utils.c \
+		sorting_utils1.c \
 		
 
 OBJ = $(SRC:.c=.o) 

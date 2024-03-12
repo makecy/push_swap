@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:22:14 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/11 23:19:24 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/03/12 18:39:23 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,22 @@ int						check_args(int argc, char **argv);
 // sorting
 int						is_sorted(t_stack_node *stack);
 void					sort_three(t_stack_node **stack_a);
+void					sort_middle(t_stack_node **stack_a,
+							t_stack_node **stack_b);
+
+void					sorts(t_stack_node *stack_a, t_stack_node *stack_b,
+							int argc);
 // utils
 void					print_stack(t_stack_node *stack);
 int						stack_size(t_stack_node *stack);
 void					free_split(char **split);
 void					free_stack(t_stack_node *stack);
+void					push_min_to_b(t_stack_node **stack_a,
+							t_stack_node **stack_b);
+int						find_min(t_stack_node *stack);
+int						find_position(t_stack_node *stack, int value);
+void					rotate_to_position(t_stack_node **stack, int position);
+int						find_insert_position(t_stack_node *stack, int value);
+void					rotate_to_position(t_stack_node **stack, int position);
 
 #endif // PUSH_SWAP_H
-
-// void					sort_five(t_stack_node **stack_a,
-								// t_stack_node **stack_b);

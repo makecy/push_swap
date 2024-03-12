@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   allsorts.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 18:22:11 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/12 17:25:50 by mstefano         ###   ########.fr       */
+/*   Created: 2024/03/12 17:23:02 by mstefano          #+#    #+#             */
+/*   Updated: 2024/03/12 18:37:14 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	sorts(t_stack_node *stack_a, t_stack_node *stack_b, int argc)
 {
-	t_stack_node	*stack_a;
-	t_stack_node	*stack_b;
-
-	stack_a = NULL;
-	stack_b = NULL;
-	if (!check_args(argc, argv))
-		return (0);
-	stack_a = create_stack(argc, argv, stack_a);
-	stack_b = create_stack(argc, argv, stack_b);
-	sorts(stack_a, stack_b, argc, argv);
+	if ((stack_size(stack_a) == 1))
+		error();
+	if (!stack_a)
+		error();
+	if (is_sorted(stack_a))
+	{
+		ft_printf("The stack is already Sorted\n");
+		return ;
+	}
+	else if ((!is_sorted(stack_a)) && (argc == 3))
+		sa(&stack_a);
+	else if (argc == 4)
+		sort_three(&stack_a);
+	else if (argc == 6)
+		sort_middle(&stack_a, &stack_b);
 }
