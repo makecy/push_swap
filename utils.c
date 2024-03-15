@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 17:48:14 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/11 23:19:36 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/03/14 18:42:58 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,15 @@ void	free_split(char **split)
 		i++;
 	}
 	free(split);
+}
+
+t_stack_node	*new_node(int value)
+{
+	t_stack_node	*node;
+
+	node = malloc(sizeof(t_stack_node));
+	if (!node)
+		error();
+	node->value = value;
+	return (node);
 }

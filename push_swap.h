@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:22:14 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/12 18:39:23 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/03/14 18:41:01 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ int						find_position(t_stack_node *stack, int value);
 void					rotate_to_position(t_stack_node **stack, int position);
 int						find_insert_position(t_stack_node *stack, int value);
 void					rotate_to_position(t_stack_node **stack, int position);
+t_stack_node			*new_node(int value);
 
 #endif // PUSH_SWAP_H
