@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:47:45 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/14 18:39:41 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/03/27 22:33:32 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	check_args(int argc, char **argv)
 		j = 0;
 		while (argv[i][j])
 		{
+			if (argv[i][j] == '-' && !ft_isdigit(argv[i][j + 1]))
+				error();
 			if ((!ft_isdigit(argv[i][j]) && (argv[i][j] != ' '
 				&& argv[i][j] != '-')))
 				error();
@@ -43,6 +45,8 @@ t_stack_node	*push_stack(t_stack_node *stack, int value)
 	t_stack_node	*new_node;
 	t_stack_node	*temp;
 
+	if (is_dup(stack, value))
+		error();
 	new_node = (t_stack_node *)ft_calloc(sizeof(t_stack_node), 1);
 	if (!new_node)
 		error();
@@ -80,4 +84,18 @@ t_stack_node	*create_stack(int argc, char **argv, t_stack_node *stack_a)
 			stack_a = push_stack(stack_a, ft_atoi(argv[i++]));
 	}
 	return (stack_a);
+}
+
+int	is_dup(t_stack_node *stack, int value)
+{
+	t_stack_node	*temp;
+
+	temp = stack;
+	while (temp)
+	{
+		if (temp->value == value)
+			return (1);
+		temp = temp->next;
+	}
+	return (0);
 }

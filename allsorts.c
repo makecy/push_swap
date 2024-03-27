@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:23:02 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/14 22:20:24 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/03/27 18:01:45 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,11 @@ void	sorts(t_stack_node *stack_a, t_stack_node *stack_b, int argc)
 		sa(&stack_a);
 	else if (argc == 4)
 		sort_three(&stack_a);
-	else if (argc > 4)
+	else if (argc <= 11)
 		sort_middle(&stack_a, &stack_b);
-	// else
-	// 	sort_big(&stack_a, &stack_b);
+	else
+	{
+		ksort1(&stack_a, &stack_b, argc - 1);
+		ksort2(&stack_a, &stack_b, argc - 1);
+	}
 }

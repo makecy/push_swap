@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 17:48:14 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/14 18:42:58 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/03/27 16:06:11 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@ void	print_stack(t_stack_node *stack)
 {
 	while (stack)
 	{
-		printf("%d ", stack->value);
+		printf("NODE\n");
+		printf("current address = %p \n", stack);
+		printf("%d \n", stack->value);
+		printf("next - %p \n", stack->next);
+		printf("prev - %p \n", stack->prev);
 		stack = stack->next;
 	}
 	printf("\n");

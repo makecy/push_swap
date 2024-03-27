@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:22:11 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/14 20:06:52 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/03/27 22:31:30 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@ int	main(int argc, char **argv)
 	if (!check_args(argc, argv))
 		return (0);
 	stack_a = create_stack(argc, argv, stack_a);
-	// stack_b = create_stack(argc, argv, stack_b);
 	sorts(stack_a, stack_b, argc);
 }

@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 15:21:45 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/07 15:57:29 by mstefano         ###   ########.fr       */
+/*   Created: 2024/03/15 21:34:37 by mstefano          #+#    #+#             */
+/*   Updated: 2024/03/27 22:31:12 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	error(void)
 {
-	const char	*s;
-	char		*d;
-
-	if (n == 0 || (dst == NULL && src == NULL))
-		return (dst);
-	d = (char *)dst;
-	s = (const char *)src;
-	while (n--)
-		*d++ = *s++;
-	return (dst);
+	write(2, "Error\n", 6);
+	exit(1);
 }

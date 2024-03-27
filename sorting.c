@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 18:42:29 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/14 17:44:08 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/03/27 22:30:58 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,16 @@ void	sort_middle(t_stack_node **stack_a, t_stack_node **stack_b)
 	int	size;
 	int	value;
 	int	position;
+	int	j;
 
+	j = 0;
 	i = 0;
 	size = stack_size(*stack_a);
 	while (size > 3)
 	{
 		push_min_to_b(stack_a, stack_b);
 		size--;
+		j++;
 	}
 	sort_three(stack_a);
 	while (*stack_b)
@@ -61,41 +64,6 @@ void	sort_middle(t_stack_node **stack_a, t_stack_node **stack_b)
 		value = (*stack_b)->value;
 		position = find_insert_position(*stack_a, value);
 		rotate_to_position(stack_a, position);
-		pa(stack_a, stack_b);
+		pa(stack_b, stack_a);
 	}
 }
-
-// void	sort_three(t_stack_node **stack_a)
-// {
-// 	int	a;
-// 	int	b;
-// 	int	c;
-
-// 	a = (*stack_a)->value;
-// 	b = (*stack_a)->next->value;
-// 	c = (*stack_a)->next->next->value;
-// 	if (a > b && a > c)
-// 	{
-// 		stack_size(*stack_a);
-// 		print_stack(*stack_a);
-// 		ra(stack_a);
-// 		stack_size(*stack_a);
-// 		print_stack(*stack_a);
-// 	}
-// 	else if (b > a && b > c)
-// 	{
-// 		stack_size(*stack_a);
-// 		print_stack(*stack_a);
-// 		rra(stack_a);
-// 		stack_size(*stack_a);
-// 		print_stack(*stack_a);
-// 	}
-// 	if ((*stack_a)->value > (*stack_a)->next->value)
-// 	{
-// 		stack_size(*stack_a);
-// 		print_stack(*stack_a);
-// 		sa(stack_a);
-// 		stack_size(*stack_a);
-// 		print_stack(*stack_a);
-// 	}
-// }
