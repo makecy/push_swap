@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 18:42:29 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/27 22:30:58 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/02 02:06:07 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,14 @@ void	sort_middle(t_stack_node **stack_a, t_stack_node **stack_b)
 	int	size;
 	int	value;
 	int	position;
-	int	j;
 
-	j = 0;
 	i = 0;
 	size = stack_size(*stack_a);
 	while (size > 3)
 	{
 		push_min_to_b(stack_a, stack_b);
 		size--;
-		j++;
+		i++;
 	}
 	sort_three(stack_a);
 	while (*stack_b)

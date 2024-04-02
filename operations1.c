@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 05:09:34 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/14 17:39:48 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/01 21:39:38 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ra(t_stack_node **stack_a)
 	(*stack_a)->prev = NULL;
 	temp->next = NULL;
 	temp->prev = last;
-	ft_printf("ra\n");
+	printf("ra\n");
 }
 
 void	rb(t_stack_node **stack_b)
@@ -41,18 +41,18 @@ void	rb(t_stack_node **stack_b)
 	while (last->next)
 		last = last->next;
 	if (last == *stack_b)
-		error();
+		return ;
 	last->next = temp;
 	*stack_b = (*stack_b)->next;
 	(*stack_b)->prev = NULL;
 	temp->next = NULL;
 	temp->prev = last;
-	ft_printf("rb\n");
+	printf("rb\n");
 }
 
 void	rr(t_stack_node **stack_a, t_stack_node **stack_b)
 {
 	ra(stack_a);
 	rb(stack_b);
-	ft_printf("rr\n");
+	printf("rr\n");
 }

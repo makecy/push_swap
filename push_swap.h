@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:22:14 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/27 22:30:04 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/02 18:37:06 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,16 @@
 # include <fcntl.h>
 # include <limits.h>
 # include <stdarg.h>
+# include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-# include <stdbool.h>
 
 typedef struct s_stack_node
 {
 	int					value;
+	int					index;
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
 }						t_stack_node;
@@ -57,6 +58,9 @@ int						stack_size(t_stack_node *stack);
 void					print_stack(t_stack_node *stack);
 void					free_split(char **split);
 void					free_stack(t_stack_node *stack);
+void					number_range(t_stack_node *stack, char **argv,
+							int argc);
+// void					number_range(t_stack_node *stack, int num);
 
 // sorting
 int						is_sorted(t_stack_node *stack);
@@ -84,5 +88,11 @@ int						count(t_stack_node *stack, int value);
 int						ft_sqrt(int number);
 int						find_max_value(t_stack_node *stack);
 int						is_dup(t_stack_node *stack, int value);
+long long				ft_atoll(const char *str);
+void					check_int_range(char *num_str, t_stack_node *stack);
+int						find_prev_max(t_stack_node *stack, int curr_max);
+void					put_index(t_stack_node **stack);
+int						find_max_index1(t_stack_node *stack);
+t_stack_node			*last_node(t_stack_node *stack_a);
 
 #endif // PUSH_SWAP_H

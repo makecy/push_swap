@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:23:02 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/27 18:01:45 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/02 19:38:21 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,25 @@
 
 void	sorts(t_stack_node *stack_a, t_stack_node *stack_b, int argc)
 {
-	if ((stack_size(stack_a) == 1))
-		error();
+	int	ss;
+
+	(void)argc;
 	if (!stack_a)
 		error();
+	ss = stack_size(stack_a);
 	if (is_sorted(stack_a))
-	{
-		ft_printf("The stack is already Sorted\n");
 		return ;
-	}
-	else if ((!is_sorted(stack_a)) && (argc == 3))
+	if (ss == 1)
+		error();
+	else if ((!is_sorted(stack_a)) && (ss == 2))
 		sa(&stack_a);
-	else if (argc == 4)
+	else if (ss == 3)
 		sort_three(&stack_a);
-	else if (argc <= 11)
+	else if (ss <= 10)
 		sort_middle(&stack_a, &stack_b);
 	else
 	{
-		ksort1(&stack_a, &stack_b, argc - 1);
-		ksort2(&stack_a, &stack_b, argc - 1);
+		ksort1(&stack_a, &stack_b, ss);
+		ksort2(&stack_a, &stack_b, ss);
 	}
 }

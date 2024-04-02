@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:46:08 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/27 22:31:06 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/02 19:15:59 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,18 @@ void	ksort1(t_stack_node **stack_a, t_stack_node **stack_b, int length)
 	int	i;
 	int	j;
 
+	put_index(stack_a);
 	i = 0;
 	j = ft_sqrt(length) * 14 / 10;
 	while (*stack_a)
 	{
-		if ((*stack_a)->value <= i)
+		if ((*stack_a)->index <= i)
 		{
 			pb(stack_a, stack_b);
 			rb(stack_b);
 			i++;
 		}
-		else if ((*stack_a)->value <= i + j)
+		else if ((*stack_a)->index <= i + j)
 		{
 			pb(stack_a, stack_b);
 			i++;
@@ -39,48 +40,95 @@ void	ksort1(t_stack_node **stack_a, t_stack_node **stack_b, int length)
 	}
 }
 
-// void	ksort2(t_stack_node **stack_a, t_stack_node **stack_b, int length)
-// {
-// 	int				i;
-// 	int				j;
-
-// 	while (length - 1 >= 0)
-// 	{
-// 		i = count(*stack_b, length - 1);
-// 		j = (length + 3) - i;
-// 		if (i <= j)
-// 		{
-// 			while ((*stack_b)->value != length - 1)
-// 				rb(stack_b);
-// 			pa(stack_b, stack_a);
-// 		}
-// 		// length--;
-// 		else
-// 		{
-// 			while ((*stack_b)->value != length - 1)
-// 				rrb(stack_b);
-// 			pa(stack_b, stack_a);
-// 		}
-// 		length--;
-// 	}
-// }
-
 void	ksort2(t_stack_node **stack_a, t_stack_node **stack_b, int length)
 {
-	int	i;
 	int	max_value;
+	int	max_position;
+	int	stack_b_size;
+	int	i;
 
-	while (length > 0)
+	while (length-- > 0)
 	{
 		max_value = find_max_value(*stack_b);
-		i = find_position(*stack_b, max_value);
-		if (i <= stack_size(*stack_b) / 2)
-			while ((*stack_b)->value != max_value)
+		if (max_value == INT_MIN)
+			break ;
+		max_position = find_position(*stack_b, max_value);
+		stack_b_size = stack_size(*stack_b);
+		i = 0;
+		if (max_position < stack_b_size / 2)
+			while (i++ < max_position)
 				rb(stack_b);
 		else
-			while ((*stack_b)->value != max_value)
+			while (i++ < stack_b_size - max_position)
 				rrb(stack_b);
 		pa(stack_b, stack_a);
-		length--;
+	}
+}
+
+// Function to go from the lowest value in stack to highest value in stack
+// give it the index from 0 to stack_size - 1
+
+int	find_prev_max(t_stack_node *stack, int curr_max)
+{
+	int	max_value;
+
+	max_value = INT_MIN;
+	while (stack)
+	{
+		if (stack->value > max_value && stack->value < curr_max)
+			max_value = stack->value;
+		stack = stack->next;
+	}
+	return (max_value);
+}
+
+// // gives the index to the stack based on final position
+// // where the stack values are from lowest to highest
+// // and the index is from 0 to stack_size - 1
+
+int	find_next_min(t_stack_node *stack, int curr_min)
+{
+	int	next_min;
+	int	found;
+
+	next_min = INT_MAX;
+	found = 0;
+	while (stack)
+	{
+		if (stack->value > curr_min && stack->value < next_min)
+		{
+			next_min = stack->value;
+			found = 1;
+		}
+		stack = stack->next;
+	}
+	if (found)
+		return (next_min);
+	else
+		return (INT_MAX);
+}
+
+void	put_index(t_stack_node **stack)
+{
+	int				i;
+	int				curr_min;
+	t_stack_node	*tmp;
+
+	i = 0;
+	curr_min = INT_MIN;
+	while (i < stack_size(*stack))
+	{
+		curr_min = find_next_min(*stack, curr_min);
+		tmp = *stack;
+		while (tmp)
+		{
+			if (tmp->value == curr_min)
+			{
+				tmp->index = i;
+				i++;
+				break ;
+			}
+			tmp = tmp->next;
+		}
 	}
 }

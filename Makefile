@@ -6,7 +6,7 @@
 #    By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 18:22:16 by mstefano          #+#    #+#              #
-#    Updated: 2024/03/27 22:23:07 by mstefano         ###   ########.fr        #
+#    Updated: 2024/03/30 17:03:56 by mstefano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ RED=\033[0;31m
 CHECK=\xE2\x9C\x94
 BROOM=\xF0\x9F\xA7\xB9
 NAME = push_swap
+RM = rm -f
 CC = cc 
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -g3
@@ -53,10 +54,10 @@ $(NAME): $(LIBRARIES) $(OBJ)
 	
 clean :
 	@make -C $(LIBRARIES_PATH) clean
-	@RM -f $(OBJ)
+	@$(RM) $(OBJ)
 	
 fclean : clean
-	@rm -f $(NAME)
+	@$(RM) $(NAME)
 	@make fclean -C $(LIBRARIES_PATH)
 	@echo "$(RED)$(BROOM)Cleaned Successfully$(RESET)$(BROOM)"
 
