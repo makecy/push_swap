@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 16:36:41 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/02 17:44:40 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/03 19:54:11 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	*ft_calloc(size_t count, size_t size)
 	void	*ptr;
 
 	total = count * size;
+	printf("total %s\n", total);
 	ptr = malloc(total);
 	if (ptr != NULL)
 		ft_memset(ptr, 0, total);

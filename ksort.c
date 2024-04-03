@@ -6,11 +6,12 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:46:08 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/02 19:15:59 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/03 22:54:06 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 
 void	ksort1(t_stack_node **stack_a, t_stack_node **stack_b, int length)
 {
@@ -64,27 +65,6 @@ void	ksort2(t_stack_node **stack_a, t_stack_node **stack_b, int length)
 		pa(stack_b, stack_a);
 	}
 }
-
-// Function to go from the lowest value in stack to highest value in stack
-// give it the index from 0 to stack_size - 1
-
-int	find_prev_max(t_stack_node *stack, int curr_max)
-{
-	int	max_value;
-
-	max_value = INT_MIN;
-	while (stack)
-	{
-		if (stack->value > max_value && stack->value < curr_max)
-			max_value = stack->value;
-		stack = stack->next;
-	}
-	return (max_value);
-}
-
-// // gives the index to the stack based on final position
-// // where the stack values are from lowest to highest
-// // and the index is from 0 to stack_size - 1
 
 int	find_next_min(t_stack_node *stack, int curr_min)
 {

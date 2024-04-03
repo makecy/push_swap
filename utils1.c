@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 21:34:37 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/02 19:33:04 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/03 23:16:09 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,15 +68,11 @@ void	check_int_range(char *num_str, t_stack_node *stack)
 	}
 }
 
-t_stack_node	*last_node(t_stack_node *stack_a)
-{
-	t_stack_node	*last;
-
-	last = stack_a;
-	while (last->next != NULL)
-		last = last->next;
-	return (last);
-}
+// ____________________________________________________________________//
+// ____________________________________________________________________//
+//						ONLY USE FOR VALGRIND							//
+// ____________________________________________________________________//
+// ____________________________________________________________________//
 
 int	ft_isdigit(int c)
 {
@@ -135,7 +131,6 @@ int	ft_atoi(const char *str)
 	}
 	return (i * j);
 }
-
 static size_t	count_words(const char *str, char c)
 {
 	size_t	count;

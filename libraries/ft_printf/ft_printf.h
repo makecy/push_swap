@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 14:43:28 by mstefano          #+#    #+#             */
-/*   Updated: 2023/11/12 17:31:55 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/01 19:37:19 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_print_character(int c);
 int		ft_print_str(char *str);
 int		ft_print_ptr(unsigned long long n);
 int		ft_printf(const char *str, ...);
-size_t	ft_strlen(const char *s);
+size_t	ft_srlen(const char *s);
 int		ft_print_decimal(int n);
 int		ft_print_percent(void);
 int		ft_print_formats(va_list args, const char *format);

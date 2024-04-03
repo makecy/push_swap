@@ -6,36 +6,11 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:43:47 by mstefano          #+#    #+#             */
-/*   Updated: 2024/03/27 17:56:00 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/03 22:50:10 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	push_min_to_b(t_stack_node **stack_a, t_stack_node **stack_b)
-{
-	int	min;
-	int	position;
-
-	min = find_min(*stack_a);
-	position = find_position(*stack_a, min);
-	rotate_to_position(stack_a, position);
-	pb(stack_a, stack_b);
-}
-
-int	find_min(t_stack_node *stack)
-{
-	int	min;
-
-	min = stack->value;
-	while (stack)
-	{
-		if (stack->value < min)
-			min = stack->value;
-		stack = stack->next;
-	}
-	return (min);
-}
 
 int	find_position(t_stack_node *stack, int value)
 {
@@ -51,6 +26,31 @@ int	find_position(t_stack_node *stack, int value)
 	}
 	return (-1);
 }
+int	find_min(t_stack_node *stack)
+{
+	int	min;
+
+	min = stack->value;
+	while (stack)
+	{
+		if (stack->value < min)
+			min = stack->value;
+		stack = stack->next;
+	}
+	return (min);
+}
+void	push_min_to_b(t_stack_node **stack_a, t_stack_node **stack_b)
+{
+	int	min;
+	int	position;
+
+	min = find_min(*stack_a);
+	position = find_position(*stack_a, min);
+	rotate_to_position(stack_a, position);
+	pb(stack_a, stack_b);
+}
+
+
 
 void	rotate_to_position(t_stack_node **stack, int position)
 {

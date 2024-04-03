@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 00:19:33 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/02 19:37:40 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/03 22:53:08 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,25 +42,15 @@ void	sb(t_stack_node **stack_b)
 	printf("sb\n");
 }
 
-void	ss(t_stack_node **stack_a, t_stack_node **stack_b)
+t_stack_node	*last_node(t_stack_node *stack_a)
 {
-	sa(stack_a);
-	sb(stack_b);
-	printf("ss\n");
+	t_stack_node	*last;
+
+	last = stack_a;
+	while (last->next != NULL)
+		last = last->next;
+	return (last);
 }
-
-// void	pa(t_stack_node **stack_b, t_stack_node **stack_a)
-// {
-// 	t_stack_node	*new_head;
-
-// 	if (!*stack_b)
-// 		return ;
-// 	new_head = new_node((*stack_b)->value);
-// 	new_head->next = *stack_a;
-// 	*stack_a = new_head;
-// 	*stack_b = (*stack_b)->next;
-// 	printf("pa\n");
-// }
 
 void	pa(t_stack_node **stack_b, t_stack_node **stack_a)
 {

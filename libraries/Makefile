@@ -6,13 +6,14 @@
 #    By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/05 13:14:15 by mstefano          #+#    #+#              #
-#    Updated: 2024/03/11 16:57:00 by mstefano         ###   ########.fr        #
+#    Updated: 2024/03/30 17:03:21 by mstefano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libraries.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -std=c99
+RM = rm -f
 
 GNL_DIR = get_next_line
 PRINTF_DIR = ft_printf
@@ -51,10 +52,10 @@ $(NAME) : $(OBJ)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(OBJ)
+	@$(RM) $(OBJ)
 
 fclean: clean
-	@rm -f $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all 
 

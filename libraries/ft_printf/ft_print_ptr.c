@@ -6,13 +6,13 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 21:33:06 by mstefano          #+#    #+#             */
-/*   Updated: 2023/11/12 17:33:29 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/03/30 17:01:06 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_ptr_len(uintptr_t n)
+int	ft_ptr_len(unsigned long n)
 {
 	int	len;
 
@@ -25,7 +25,7 @@ int	ft_ptr_len(uintptr_t n)
 	return (len);
 }
 
-int	ft_put_ptr(uintptr_t n)
+int	ft_put_ptr(unsigned long n)
 {
 	int	print_len;
 

@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 17:48:14 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/01 20:50:35 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/03 23:16:42 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,26 +53,3 @@ void	free_stack(t_stack_node *stack)
 	}
 }
 
-void	free_split(char **split)
-{
-	int	i;
-
-	i = 0;
-	while (split[i])
-	{
-		free(split[i]);
-		i++;
-	}
-	free(split);
-}
-
-t_stack_node	*new_node(int value)
-{
-	t_stack_node	*node;
-
-	node = malloc(sizeof(t_stack_node));
-	if (!node)
-		error();
-	node->value = value;
-	return (node);
-}

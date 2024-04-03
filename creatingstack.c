@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:47:45 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/02 19:01:20 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/03 22:09:27 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ int	check_args(int argc, char **argv)
 			if (argv[i[0]][i[1]] == '-' && !ft_isdigit(argv[i[0]][(i[1]) + 1]))
 				error();
 			if ((!ft_isdigit(argv[i[0]][i[1]]) && (argv[i[0]][i[1]] != ' '
-				&& argv[i[0]][i[1]] != '-')))
+						&& argv[i[0]][i[1]] != '-')))
 				error();
 			if ((ft_isdigit(argv[i[0]][i[1]]) && (argv[i[0]][(i[1]) + 1] == ' '
-				|| argv[i[0]][(i[1]) + 1] == '\0')))
+						|| argv[i[0]][(i[1]) + 1] == '\0')))
 				i[2] += 1;
 			i[1]++;
 		}
@@ -75,11 +75,15 @@ t_stack_node	*push_stack(t_stack_node *stack, int value)
 	t_stack_node	*new_node;
 	t_stack_node	*temp;
 
-	if (is_dup(stack, value))
-		error();
-	new_node = (t_stack_node *)ft_calloc(sizeof(t_stack_node), 1);
+	new_node = ft_calloc(1, sizeof(t_stack_node));
 	if (!new_node)
 		error();
+	if (is_dup(stack, value))
+	{
+		free(new_node);
+		free_stack(stack);
+		error();
+	}
 	new_node->value = value;
 	new_node->next = NULL;
 	if (!stack)

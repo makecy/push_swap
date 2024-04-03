@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:44:11 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/02 02:05:53 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/03 22:57:17 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,23 +49,6 @@ int	ft_sqrt(int number)
 	return (i - 1);
 }
 
-int	count(t_stack_node *stack, int value)
-{
-	int				count;
-	t_stack_node	*temp;
-
-	count = 0;
-	temp = stack;
-	while (temp != NULL)
-	{
-		if (temp->value == value)
-			break ;
-		temp = temp->next;
-		count++;
-	}
-	return (count);
-}
-
 int	find_max_value(t_stack_node *stack)
 {
 	int	max_value;
@@ -80,20 +63,3 @@ int	find_max_value(t_stack_node *stack)
 	return (max_value);
 }
 
-int	find_max_index1(t_stack_node *stack)
-{
-	int	max_value;
-	int	max_index;
-
-	max_value = INT_MIN;
-	while (stack)
-	{
-		if (stack->value > max_value)
-		{
-			max_value = stack->value;
-			max_index = stack->index;
-		}
-		stack = stack->next;
-	}
-	return (max_index);
-}
