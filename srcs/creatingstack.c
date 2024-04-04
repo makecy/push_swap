@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:47:45 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/03 22:09:27 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/04 23:49:02 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,6 @@ t_stack_node	*push_stack(t_stack_node *stack, int value)
 	new_node = ft_calloc(1, sizeof(t_stack_node));
 	if (!new_node)
 		error();
-	if (is_dup(stack, value))
-	{
-		free(new_node);
-		free_stack(stack);
-		error();
-	}
 	new_node->value = value;
 	new_node->next = NULL;
 	if (!stack)
@@ -96,54 +90,58 @@ t_stack_node	*push_stack(t_stack_node *stack, int value)
 	return (stack);
 }
 
-static int	num_count(char *str)
+int num_count(char *str)
 {
-	int	i;
-	int	nc;
+    int nc = 0;
+    int i = 0;
 
-	i = 0;
-	nc = 0;
-	while (str[i])
-	{
-		if (str[i] != '-' && !ft_isdigit(str[i]))
-			error();
-		if (str[i] == '-' && str[i + 1] != '-')
-			i++;
-		if (ft_isdigit(str[i]))
-			nc++;
-		while (ft_isdigit(str[i]) == 1)
-			i++;
-		if (str[i] == ' ' || str[i] == '\t')
-			i++;
-	}
-	return (nc);
+    while (str[i])
+    {
+        while (str[i] && !ft_isdigit(str[i]))
+            i++;
+        if (str[i])
+            nc++;
+        while (ft_isdigit(str[i]))
+            i++;
+        while (str[i] == ' ' && str[i + 1] == ' ')
+            i++;
+    }
+
+    return nc;
 }
 
-static t_stack_node	*handel_string_inputs(char *arg, t_stack_node *a)
+static t_stack_node	*handel_string_inputs(char *arg, t_stack_node *stack_a)
 {
 	char	**nums;
 	int		i;
+	bool	num_too_big;
 
+	num_too_big = false;
 	nums = ft_split(arg, ' ');
 	i = 0;
 	if (nums == NULL)
 		error();
 	while (nums[i])
 	{
-		check_int_range(nums[i], a);
-		a = push_stack(a, ft_atoi(nums[i]));
+		if (check_int_range(nums[i]))
+			num_too_big = true;
+		stack_a = push_stack(stack_a, ft_atoi(nums[i]));
 		free(nums[i]);
 		i++;
 	}
 	free(nums);
-	return (a);
+	if (is_dup(stack_a) || num_too_big)
+		free_stack(stack_a, true);
+	return (stack_a);
 }
 
 t_stack_node	*create_stack(int argc, char **argv, t_stack_node *stack_a)
 {
 	int	i;
 	int	nc;
+	bool num_too_big;
 
+	num_too_big = false;
 	i = 1;
 	if (argc < 2)
 		return (0);
@@ -153,10 +151,16 @@ t_stack_node	*create_stack(int argc, char **argv, t_stack_node *stack_a)
 		if (nc == 0)
 			error();
 		else if (nc == 1)
+		{
+			if (check_int_range(argv[i]))
+				num_too_big = true;
 			stack_a = push_stack(stack_a, ft_atoi(argv[i]));
+		}
 		else
 			stack_a = handel_string_inputs(argv[i], stack_a);
 		i++;
 	}
+		if (is_dup(stack_a) || num_too_big)
+			free_stack(stack_a, true);
 	return (stack_a);
 }

@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:22:14 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/03 23:07:35 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/04 23:56:11 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,12 @@ void					ksort1(t_stack_node **stack_a, t_stack_node **stack_b,
 void					ksort2(t_stack_node **stack_a, t_stack_node **stack_b,
 							int length);
 
-void					sorts(t_stack_node *stack_a, t_stack_node *stack_b);
+void					sorts(t_stack_node **stack_a, t_stack_node **stack_b);
 void					sort_stack(t_stack_node **stack_a);
 // allutils
 int						stack_size(t_stack_node *stack);
 void					error(void);
-void					free_stack(t_stack_node *stack);
+void					free_stack(t_stack_node *stack, bool error_and_exit);
 void					print_stack(t_stack_node *stack);
 void					rotate_to_position(t_stack_node **stack, int position);
 void					push_min_to_b(t_stack_node **stack_a,
@@ -73,9 +73,13 @@ int						find_position(t_stack_node *stack, int value);
 int						find_insert_position(t_stack_node *stack, int value);
 int						ft_sqrt(int number);
 int						find_max_value(t_stack_node *stack);
-int						is_dup(t_stack_node *stack, int value);
+// int						is_dup(t_stack_node *stack, int value);
+int						is_dup(t_stack_node *stack);
 long long				ft_atoll(const char *str);
-void					check_int_range(char *num_str, t_stack_node *stack);
+// bool					check_int_range(char *num_str, t_stack_node *stack);
+bool					check_int_range(char *num_str);
 void					put_index(t_stack_node **stack);
+
+int						is_sorted(t_stack_node *stack);
 
 #endif // PUSH_SWAP_H

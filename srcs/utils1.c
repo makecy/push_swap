@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 21:34:37 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/03 23:16:09 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/04 22:47:49 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,31 +42,54 @@ long long	ft_atoll(const char *str)
 	return (i * j);
 }
 
-int	is_dup(t_stack_node *stack, int value)
+// int	is_dup(t_stack_node *stack, int value)
+// {
+// 	t_stack_node	*temp;
+
+// 	temp = stack;
+// 	while (temp)
+// 	{
+// 		if (temp->value == value)
+// 			return (1);
+// 		temp = temp->next;
+// 	}
+// 	return (0);
+// }
+
+int is_dup(t_stack_node *stack)
 {
 	t_stack_node	*temp;
-
-	temp = stack;
-	while (temp)
+	
+	// temp = stack;
+	while(stack->next)
 	{
-		if (temp->value == value)
-			return (1);
-		temp = temp->next;
+		temp = stack->next;
+		while(temp)
+		{
+			if(temp->value == stack->value)
+				return (1);
+			temp = temp->next;	
+		}
+		stack = stack->next;
 	}
 	return (0);
 }
 
-void	check_int_range(char *num_str, t_stack_node *stack)
+bool	check_int_range(char *num_str)
 {
 	long long	num;
 
 	num = ft_atoll(num_str);
 	if (num > INT_MAX || num < INT_MIN || ft_strlen(num_str) > 11)
 	{
-		error();
-		free_stack(stack);
+		// free_stack(stack);
+		// error();
+		return (true);
 	}
+	return (false);
 }
+
+
 
 // ____________________________________________________________________//
 // ____________________________________________________________________//
