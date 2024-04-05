@@ -6,12 +6,11 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:46:08 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/03 22:54:06 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/05 18:50:41 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	ksort1(t_stack_node **stack_a, t_stack_node **stack_b, int length)
 {

@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:44:11 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/03 22:57:17 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/05 18:50:14 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,3 @@ int	find_max_value(t_stack_node *stack)
 	}
 	return (max_value);
 }
-

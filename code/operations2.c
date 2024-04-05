@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 05:21:33 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/04 17:13:12 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/05 18:51:02 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,3 @@ void	rrb(t_stack_node **stack_b)
 	}
 	printf("rrb\n");
 }
-

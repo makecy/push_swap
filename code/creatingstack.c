@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:47:45 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/04 23:49:02 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/05 18:47:27 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ int	check_args(int argc, char **argv)
 			if (argv[i[0]][i[1]] == '-' && !ft_isdigit(argv[i[0]][(i[1]) + 1]))
 				error();
 			if ((!ft_isdigit(argv[i[0]][i[1]]) && (argv[i[0]][i[1]] != ' '
-						&& argv[i[0]][i[1]] != '-')))
+				&& argv[i[0]][i[1]] != '-')))
 				error();
 			if ((ft_isdigit(argv[i[0]][i[1]]) && (argv[i[0]][(i[1]) + 1] == ' '
-						|| argv[i[0]][(i[1]) + 1] == '\0')))
+				|| argv[i[0]][(i[1]) + 1] == '\0')))
 				i[2] += 1;
 			i[1]++;
 		}
@@ -90,24 +90,25 @@ t_stack_node	*push_stack(t_stack_node *stack, int value)
 	return (stack);
 }
 
-int num_count(char *str)
+int	num_count(char *str)
 {
-    int nc = 0;
-    int i = 0;
+	int	nc;
+	int	i;
 
-    while (str[i])
-    {
-        while (str[i] && !ft_isdigit(str[i]))
-            i++;
-        if (str[i])
-            nc++;
-        while (ft_isdigit(str[i]))
-            i++;
-        while (str[i] == ' ' && str[i + 1] == ' ')
-            i++;
-    }
-
-    return nc;
+	nc = 0;
+	i = 0;
+	while (str[i])
+	{
+		while (str[i] && !ft_isdigit(str[i]))
+			i++;
+		if (str[i])
+			nc++;
+		while (ft_isdigit(str[i]))
+			i++;
+		while (str[i] == ' ' && str[i + 1] == ' ')
+			i++;
+	}
+	return (nc);
 }
 
 static t_stack_node	*handel_string_inputs(char *arg, t_stack_node *stack_a)
@@ -137,11 +138,10 @@ static t_stack_node	*handel_string_inputs(char *arg, t_stack_node *stack_a)
 
 t_stack_node	*create_stack(int argc, char **argv, t_stack_node *stack_a)
 {
-	int	i;
-	int	nc;
-	bool num_too_big;
+	int		i;
+	int		nc;
+	bool	num_too_big;
 
-	num_too_big = false;
 	i = 1;
 	if (argc < 2)
 		return (0);
@@ -160,7 +160,7 @@ t_stack_node	*create_stack(int argc, char **argv, t_stack_node *stack_a)
 			stack_a = handel_string_inputs(argv[i], stack_a);
 		i++;
 	}
-		if (is_dup(stack_a) || num_too_big)
-			free_stack(stack_a, true);
+	if (is_dup(stack_a) || num_too_big)
+		free_stack(stack_a, true);
 	return (stack_a);
 }
