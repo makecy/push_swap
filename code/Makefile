@@ -6,7 +6,7 @@
 #    By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 18:22:16 by mstefano          #+#    #+#              #
-#    Updated: 2024/03/30 17:03:56 by mstefano         ###   ########.fr        #
+#    Updated: 2024/04/09 18:23:28 by mstefano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ RED=\033[0;31m
 CHECK=\xE2\x9C\x94
 BROOM=\xF0\x9F\xA7\xB9
 NAME = push_swap
+BONUS_NAME = checker
 RM = rm -f
 CC = cc 
 RM = rm -f
@@ -36,10 +37,23 @@ SRC = 	push_swap.c \
 		sorting_utils1.c \
 		ksort.c \
 		utils1.c \
+
+BONUS_SRC = checker.c \
+			operations.c \
+			operations1.c \
+			operations2.c \
+			creatingstack.c \
+			utils.c \
+			utils1.c \
+			libraries/get_next_line/get_next_line_bonus.c \
+			libraries/get_next_line/get_next_line_utils_bonus.c \
 		
 OBJ = $(SRC:.c=.o) 
+BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
 all: $(NAME)
+
+bonus: $(LIBRARIES) $(BONUS_NAME)
 
 $(LIBRARIES):
 	@make -C $(LIBRARIES_PATH)
@@ -49,12 +63,16 @@ $(NAME): $(LIBRARIES) $(OBJ)
 	@cc $(CFLAGS) $(LIBRARIES) -o $(NAME) $(OBJ)
 	@echo "$(GREEN)$(CHECK)Compiled push_swap Successfully$(CHECK)$(RESET)"
 
+$(BONUS_NAME): $(BONUS_OBJ)  
+	@cc $(CFLAGS) $(LIBRARIES) -o $(BONUS_NAME) $(BONUS_OBJ)
+	@echo "$(GREEN)$(CHECK)Compiled checker Successfully$(CHECK)$(RESET)"
+
 %.o : %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 	
 clean :
 	@make -C $(LIBRARIES_PATH) clean
-	@$(RM) $(OBJ)
+	@$(RM) $(OBJ) $(BONUS_OBJ)
 	
 fclean : clean
 	@$(RM) $(NAME)

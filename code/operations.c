@@ -6,13 +6,13 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 00:19:33 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/05 18:50:56 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/09 03:50:33 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack_node **stack_a)
+void	sa(t_stack_node **stack_a, bool print)
 {
 	t_stack_node	*temp;
 
@@ -23,10 +23,11 @@ void	sa(t_stack_node **stack_a)
 		temp->next = (*stack_a)->next;
 		(*stack_a)->next = temp;
 	}
-	printf("sa\n");
+	if (print)
+		ft_printf("sa\n");
 }
 
-void	sb(t_stack_node **stack_b)
+void	sb(t_stack_node **stack_b, bool print)
 {
 	t_stack_node	*temp;
 
@@ -39,20 +40,19 @@ void	sb(t_stack_node **stack_b)
 		temp->next->prev = temp;
 		(*stack_b)->prev = NULL;
 	}
-	printf("sb\n");
+	if (print)
+		ft_printf("sb\n");
 }
 
-t_stack_node	*last_node(t_stack_node *stack_a)
+void	ss(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
 {
-	t_stack_node	*last;
-
-	last = stack_a;
-	while (last->next != NULL)
-		last = last->next;
-	return (last);
+	sa(stack_a, false);
+	sb(stack_b, false);
+	if (print)
+		ft_printf("ss\n");
 }
 
-void	pa(t_stack_node **stack_b, t_stack_node **stack_a)
+void	pa(t_stack_node **stack_b, t_stack_node **stack_a, bool print)
 {
 	t_stack_node	*move;
 	t_stack_node	*last;
@@ -73,10 +73,11 @@ void	pa(t_stack_node **stack_b, t_stack_node **stack_a)
 	*stack_a = move;
 	last = last_node(*stack_a);
 	last->next = NULL;
-	printf("pa\n");
+	if (print)
+		ft_printf("pa\n");
 }
 
-void	pb(t_stack_node **stack_a, t_stack_node **stack_b)
+void	pb(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
 {
 	t_stack_node	*move;
 	t_stack_node	*last;
@@ -97,5 +98,6 @@ void	pb(t_stack_node **stack_a, t_stack_node **stack_b)
 	*stack_b = move;
 	last = last_node(*stack_b);
 	last->next = NULL;
-	printf("pb\n");
+	if (print)
+		ft_printf("pb\n");
 }

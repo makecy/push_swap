@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:46:08 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/05 18:50:41 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/09 01:47:01 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,17 @@ void	ksort1(t_stack_node **stack_a, t_stack_node **stack_b, int length)
 	{
 		if ((*stack_a)->index <= i)
 		{
-			pb(stack_a, stack_b);
-			rb(stack_b);
+			pb(stack_a, stack_b, true);
+			rb(stack_b, true);
 			i++;
 		}
 		else if ((*stack_a)->index <= i + j)
 		{
-			pb(stack_a, stack_b);
+			pb(stack_a, stack_b, true);
 			i++;
 		}
-		else if (!(*stack_a)->next)
-			pb(stack_a, stack_b);
 		else
-			ra(stack_a);
+			ra(stack_a, true);
 	}
 }
 
@@ -57,11 +55,11 @@ void	ksort2(t_stack_node **stack_a, t_stack_node **stack_b, int length)
 		i = 0;
 		if (max_position < stack_b_size / 2)
 			while (i++ < max_position)
-				rb(stack_b);
+				rb(stack_b, true);
 		else
 			while (i++ < stack_b_size - max_position)
-				rrb(stack_b);
-		pa(stack_b, stack_a);
+				rrb(stack_b, true);
+		pa(stack_b, stack_a, true);
 	}
 }
 

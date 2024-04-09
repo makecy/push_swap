@@ -6,13 +6,13 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 05:21:33 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/05 18:51:02 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/09 02:13:10 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_stack_node **stack_a)
+void	rra(t_stack_node **stack_a, bool print)
 {
 	t_stack_node	*last;
 	t_stack_node	*temp;
@@ -32,10 +32,11 @@ void	rra(t_stack_node **stack_a)
 		(*stack_a)->prev = last;
 		*stack_a = last;
 	}
-	printf("rra\n");
+	if (print)
+		ft_printf("rra\n");
 }
 
-void	rrb(t_stack_node **stack_b)
+void	rrb(t_stack_node **stack_b, bool print)
 {
 	t_stack_node	*last;
 	t_stack_node	*temp;
@@ -53,5 +54,14 @@ void	rrb(t_stack_node **stack_b)
 		(*stack_b)->prev = last;
 		*stack_b = last;
 	}
-	printf("rrb\n");
+	if (print)
+		ft_printf("rrb\n");
+}
+
+void	rrr(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
+{
+	rra(stack_a, false);
+	rrb(stack_b, false);
+	if (print)
+		ft_printf("rrr\n");
 }

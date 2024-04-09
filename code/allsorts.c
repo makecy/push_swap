@@ -6,23 +6,12 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:23:02 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/05 17:41:14 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/09 17:42:46 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_sorted(t_stack_node *stack)
-{
-	while (stack->next)
-	{
-		if (stack->value < stack->next->value)
-			stack = stack->next;
-		else
-			return (0);
-	}
-	return (1);
-}
 
 void	sorts(t_stack_node **stack_a, t_stack_node **stack_b)
 {
@@ -33,10 +22,8 @@ void	sorts(t_stack_node **stack_a, t_stack_node **stack_b)
 	ss = stack_size(*stack_a);
 	if (is_sorted(*stack_a))
 		return ;
-	if (ss == 1)
-		error();
 	else if ((!is_sorted(*stack_a)) && (ss == 2))
-		sa(stack_a);
+		sa(stack_a, true);
 	else if (ss == 3)
 		sort_three(stack_a);
 	else if (ss <= 10)

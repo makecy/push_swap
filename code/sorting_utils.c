@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:43:47 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/05 18:48:02 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/09 01:41:21 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	push_min_to_b(t_stack_node **stack_a, t_stack_node **stack_b)
 	min = find_min(*stack_a);
 	position = find_position(*stack_a, min);
 	rotate_to_position(stack_a, position);
-	pb(stack_a, stack_b);
+	pb(stack_a, stack_b, true);
 }
 
 void	rotate_to_position(t_stack_node **stack, int position)
@@ -60,25 +60,12 @@ void	rotate_to_position(t_stack_node **stack, int position)
 	if (position < size / 2)
 	{
 		while (position--)
-			ra(stack);
+			ra(stack, true);
 	}
 	else
 	{
 		position = size - position;
 		while (position--)
-			rra(stack);
+			rra(stack, true);
 	}
-}
-
-int	find_insert_position(t_stack_node *stack, int value)
-{
-	int	position;
-
-	position = 0;
-	while (stack && stack->value < value)
-	{
-		position++;
-		stack = stack->next;
-	}
-	return (position);
 }

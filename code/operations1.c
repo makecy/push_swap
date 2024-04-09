@@ -6,13 +6,13 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 05:09:34 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/02 21:22:32 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/09 02:12:19 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_stack_node **stack_a)
+void	ra(t_stack_node **stack_a, bool print)
 {
 	t_stack_node	*last;
 	t_stack_node	*temp;
@@ -28,10 +28,11 @@ void	ra(t_stack_node **stack_a)
 	(*stack_a)->prev = NULL;
 	temp->next = NULL;
 	temp->prev = last;
-	printf("ra\n");
+	if (print)
+		ft_printf("ra\n");
 }
 
-void	rb(t_stack_node **stack_b)
+void	rb(t_stack_node **stack_b, bool print)
 {
 	t_stack_node	*last;
 	t_stack_node	*temp;
@@ -47,12 +48,14 @@ void	rb(t_stack_node **stack_b)
 	(*stack_b)->prev = NULL;
 	temp->next = NULL;
 	temp->prev = last;
-	printf("rb\n");
+	if (print)
+		ft_printf("rb\n");
 }
 
-void	rr(t_stack_node **stack_a, t_stack_node **stack_b)
+void	rr(t_stack_node **stack_a, t_stack_node **stack_b, bool print)
 {
-	ra(stack_a);
-	rb(stack_b);
-	printf("rr\n");
+	ra(stack_a, false);
+	rb(stack_b, false);
+	if (print)
+		ft_printf("rr\n");
 }
