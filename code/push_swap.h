@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:22:14 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/09 03:11:08 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/11 18:10:03 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ int						is_dup(t_stack_node *stack);
 int						is_sorted(t_stack_node *stack);
 long long				ft_atoll(const char *str);
 bool					check_int_range(char *num_str);
-void					free_stacks(t_stack_node *stack_a, t_stack_node *stack_b);
+void					free_stacks(t_stack_node *stack_a,
+							t_stack_node *stack_b);
 int						is_sorted(t_stack_node *stack);
 void					print_stack(t_stack_node *stack);
 

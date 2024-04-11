@@ -6,12 +6,11 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:23:02 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/09 17:42:46 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/09 18:42:32 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	sorts(t_stack_node **stack_a, t_stack_node **stack_b)
 {

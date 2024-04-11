@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 01:25:14 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/09 17:24:05 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/11 18:25:56 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,21 @@
 
 static void	execute(t_stack_node **stack_a, t_stack_node **stack_b, char *line);
 
-void check_leaks(void)
-{
-	system("leaks checker");
-}
-
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stack_node	*stack_a;
 	t_stack_node	*stack_b;
-	char 			*line;
+	char			*line;
 
-	atexit(check_leaks);
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc < 2)
-		error();
-	check_args(argc, argv);
+		return (0);
+	if (!check_args(argc, argv))
+		return (0);
 	stack_a = create_stack(argc, argv, stack_a);
 	line = get_next_line(0);
-	while(line)
+	while (line)
 	{
 		execute(&stack_a, &stack_b, line);
 		free(line);
@@ -46,6 +41,7 @@ int main(int argc, char **argv)
 	free_stacks(stack_a, stack_b);
 	return (0);
 }
+
 static void	execute(t_stack_node **stack_a, t_stack_node **stack_b, char *line)
 {
 	if (!ft_strncmp(line, "sa\n", 3))
@@ -55,7 +51,7 @@ static void	execute(t_stack_node **stack_a, t_stack_node **stack_b, char *line)
 	else if (!ft_strncmp(line, "ss\n", 3))
 		ss(stack_a, stack_b, false);
 	else if (!ft_strncmp(line, "pa\n", 3))
-		pa(stack_a, stack_b, false);
+		pa(stack_b, stack_a, false);
 	else if (!ft_strncmp(line, "pb\n", 3))
 		pb(stack_a, stack_b, false);
 	else if (!ft_strncmp(line, "ra\n", 3))
@@ -70,8 +66,10 @@ static void	execute(t_stack_node **stack_a, t_stack_node **stack_b, char *line)
 		rrb(stack_b, false);
 	else if (!ft_strncmp(line, "rrr\n", 4))
 		rrr(stack_a, stack_b, false);
-
+	else
+		error();
 }
+
 void	free_stacks(t_stack_node *stack_a, t_stack_node *stack_b)
 {
 	free_stack(stack_a, false);

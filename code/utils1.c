@@ -6,7 +6,7 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 21:34:37 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/09 18:23:39 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/09 18:43:41 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ bool	check_int_range(char *num_str)
 	}
 	return (false);
 }
+
 t_stack_node	*last_node(t_stack_node *stack_a)
 {
 	t_stack_node	*last;

@@ -6,7 +6,7 @@
 #    By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 18:22:16 by mstefano          #+#    #+#              #
-#    Updated: 2024/04/09 18:23:28 by mstefano         ###   ########.fr        #
+#    Updated: 2024/04/10 17:47:43 by mstefano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,10 +75,10 @@ clean :
 	@$(RM) $(OBJ) $(BONUS_OBJ)
 	
 fclean : clean
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) $(BONUS_NAME)
 	@make fclean -C $(LIBRARIES_PATH)
 	@echo "$(RED)$(BROOM)Cleaned Successfully$(RESET)$(BROOM)"
 
-re : fclean all
+re : fclean all bonus
 
 .PHONY: all clean fclean re
