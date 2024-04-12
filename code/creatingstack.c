@@ -6,41 +6,11 @@
 /*   By: mstefano <mstefano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:47:45 by mstefano          #+#    #+#             */
-/*   Updated: 2024/04/09 18:00:57 by mstefano         ###   ########.fr       */
+/*   Updated: 2024/04/12 17:29:25 by mstefano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// int	check_args(int argc, char **argv)
-// {
-// 	int			i;
-// 	int			j;
-// 	int			count;
-
-// 	i = 1;
-// 	count = 0;
-// 	while (i < argc)
-// 	{
-// 		j = 0;
-// 		if (argv[i][0] == '\0')
-// 			error();
-// 		while (argv[i][j])
-// 		{
-// 			if (argv[i][j] == '-' && !ft_isdigit(argv[i][j + 1]))
-// 				error();
-// 			if ((!ft_isdigit(argv[i][j]) && (argv[i][j] != ' '
-// 						&& argv[i][j] != '-')))
-// 				error();
-// 			if ((ft_isdigit(argv[i][j]) && (argv[i][j + 1] == ' ' || argv[i][j
-// 						+ 1] == '\0')))
-// 				count += 1;
-// 			j++;
-// 		}
-// 		i++;
-// 	}
-// 	return (count);
-// }
 
 int	check_args(int argc, char **argv)
 {
